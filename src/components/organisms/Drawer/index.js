@@ -12,15 +12,14 @@ const Drawer = () => {
         <DrawerMaterialUi
             className={classes.drawer}
             variant="permanent"
-            classes={{
-                paper: classes.drawerPaper,
-            }}
+            classes={{paper: classes.drawerPaper}}
             anchor="left"
         >
             <div className={classes.toolbar}/>
             <Divider/>
             <List>
-                {DRAWER_ITEMS.map(({url, title, icon}) => <DrawerItem title={title} url={url} icon={icon}/>)}
+                {DRAWER_ITEMS.map(({url, title, icon}, key) =>
+                    <DrawerItem title={title} url={url} icon={icon} key={key}/>)}
             </List>
         </DrawerMaterialUi>
     )
