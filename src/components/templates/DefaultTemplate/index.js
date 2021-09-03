@@ -1,29 +1,30 @@
 import React from 'react';
-import {Container, CssBaseline} from '@material-ui/core';
-import {
-    ContentContainer,
-    DrawerContainer,
-    DrawerContainerInner,
-    MainContent
-} from './styles.jsx';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import {useStyles} from "./styles";
+import Drawer from "components/organisms/Drawer";
 
-const DefaultTemplate = ({children}) => (
-    <>
-        <CssBaseline/>
-        <Container maxWidth='xl' disableGutters style={{margin: 0}}>
-            <ContentContainer>
-                <DrawerContainer>
-                    <DrawerContainerInner>
-                    </DrawerContainerInner>
-                </DrawerContainer>
-                <Container maxWidth='xl'>
-                    <MainContent>
-                        {children}
-                    </MainContent>
-                </Container>
-            </ContentContainer>
-        </Container>
-    </>
-);
+const DefaultTemplate = ({children}) => {
+    const classes = useStyles();
+    return (
+        <div className={classes.root}>
+            <CssBaseline/>
+            <AppBar position="fixed" className={classes.appBar}>
+                <Toolbar>
+                    <Typography variant="h6" noWrap>
+                        Currencies App
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+            <Drawer/>
+            <main className={classes.content}>
+                <div className={classes.toolbar}/>
+                {children}
+            </main>
+        </div>
+    )
+};
 
 export default DefaultTemplate;

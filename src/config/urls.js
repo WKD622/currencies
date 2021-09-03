@@ -1,6 +1,6 @@
 
 // BOOKING URLS
-const CONVERTER_SCREEN_URL = '/converter';
+const CONVERTER_SCREEN_URL = '/';
 
 // USERS URLS
 const EXCHANGE_RATES_SCREEN_URL = '/exchange-rates';
