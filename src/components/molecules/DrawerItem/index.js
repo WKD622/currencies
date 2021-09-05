@@ -4,8 +4,9 @@ import ListItem from '@material-ui/core/ListItem';
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {observer} from "mobx-react";
 
-const DrawerItem = ({icon, title, url}) => (
+const DrawerItem = observer(({icon, title, url}) => (
     <ListItem
         button
         component={NavLink}
@@ -21,7 +22,7 @@ const DrawerItem = ({icon, title, url}) => (
             primary={title}
         />
     </ListItem>
-);
+));
 
 DrawerItem.propTypes = {
     title: PropTypes.string.isRequired,

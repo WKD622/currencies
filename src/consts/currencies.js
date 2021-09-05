@@ -1,18 +1,1 @@
-export const CURRENCIES = [
-    {
-        value: 'USD',
-        label: '$',
-    },
-    {
-        value: 'EUR',
-        label: '€',
-    },
-    {
-        value: 'BTC',
-        label: '฿',
-    },
-    {
-        value: 'JPY',
-        label: '¥',
-    },
-];
+export const EUR_CURRENCY_ID = 'EUR'

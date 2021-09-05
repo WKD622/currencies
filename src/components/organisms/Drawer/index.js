@@ -5,8 +5,9 @@ import DrawerItem from "components/molecules/DrawerItem";
 import {useStyles} from "./styles";
 import DrawerMaterialUi from '@material-ui/core/Drawer';
 import {DRAWER_ITEMS} from "components/organisms/Drawer/consts";
+import {observer} from "mobx-react";
 
-const Drawer = () => {
+const Drawer = observer(() => {
     const classes = useStyles()
     return (
         <DrawerMaterialUi
@@ -23,6 +24,6 @@ const Drawer = () => {
             </List>
         </DrawerMaterialUi>
     )
-};
+});
 
 export default Drawer;

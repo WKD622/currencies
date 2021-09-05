@@ -1,0 +1,5 @@
+export const ROUTER = 'ROUTER'
+export const THEME_PROVIDER = 'THEME_PROVIDER'
+export const MOBX_PROVIDER = 'MOBX_PROVIDER'
+export const SHALLOW = 'SHALLOW'
+export const MOUNT = 'MOUNT'

@@ -1,29 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {ToolbarContent, useStyles} from "./styles";
+import {observer} from 'mobx-react';
 import Drawer from "components/organisms/Drawer";
-import BaseCurrencyDialog from "components/organisms/BaseCurrencyDialog";
-import {CURRENCIES} from "consts/currencies";
+import BaseCurrencyDialog from "components/organisms/Drawer/BaseCurrencyDialog";
+import {useStores} from "stores";
+import Loader from "components/atoms/Loader";
 
-const DefaultTemplate = ({children}) => {
+const DefaultTemplate = observer(({children}) => {
     const classes = useStyles();
-    const [dialogOpened, setDialogOpened] = useState(true);
+    const {currenciesStore} = useStores();
 
-    const setBaseCurrency = (currency) => {
-        console.log(currency)
-        setDialogOpened(false)
-    }
+    if (currenciesStore.fetching) return <Loader/>
 
     return (
         <div className={classes.root}>
             <CssBaseline/>
             <BaseCurrencyDialog
-                onSubmit={setBaseCurrency}
-                isOpened={dialogOpened}
-                currencies={CURRENCIES}
+                onSubmit={currenciesStore.setBaseCurrency}
+                isOpened={!currenciesStore.hasBaseCurrency}
+                currencies={currenciesStore.currencies}
             />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
@@ -32,7 +31,7 @@ const DefaultTemplate = ({children}) => {
                             Currencies App
                         </Typography>
                         <Typography variant="h6" noWrap>
-                            Base currency: EUR
+                            Base currency: {currenciesStore.baseCurrency}
                         </Typography>
                     </ToolbarContent>
                 </Toolbar>
@@ -44,6 +43,6 @@ const DefaultTemplate = ({children}) => {
             </main>
         </div>
     )
-};
+});
 
 export default DefaultTemplate;

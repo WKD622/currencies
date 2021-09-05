@@ -3,10 +3,10 @@ import DialogMaterialUi from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import PropTypes from 'prop-types';
 import {Button, DialogActions, DialogContentText, DialogTitle, MenuItem, TextField} from "@material-ui/core";
-import {useForm} from "react-hook-form";
-import {Controller} from 'react-hook-form';
+import {Controller, useForm} from "react-hook-form";
+import {observer} from "mobx-react";
 
-const BaseCurrencyDialog = ({isOpened, currencies, onSubmit}) => {
+const BaseCurrencyDialog = observer(({isOpened, currencies, onSubmit}) => {
     const defaultValues = {currency: ''}
     const {handleSubmit, control, formState: {errors}} = useForm({defaultValues, mode: 'onChange'});
 
@@ -20,6 +20,7 @@ const BaseCurrencyDialog = ({isOpened, currencies, onSubmit}) => {
             open={isOpened}
             onClose={() => false}
             maxWidth='sm'
+            aria-labelledby="simple-dialog-title"
         >
             <DialogTitle id="form-dialog-title">Base currency</DialogTitle>
             <form onSubmit={handleSubmit(handleSubmitting)}>
@@ -37,13 +38,14 @@ const BaseCurrencyDialog = ({isOpened, currencies, onSubmit}) => {
                                 id="standard-select-currency"
                                 select
                                 fullWidth
+                                variant="outlined"
                                 label="Currency"
                                 error={Boolean(errors.currency)}
                                 helperText={errors.currency?.message}
                             >
-                                {currencies.map((option) => (
-                                    <MenuItem key={option.value} value={option.value}>
-                                        {option.label}
+                                {currencies.map(({currencyName, currencySymbol, id}) => (
+                                    <MenuItem key={id} value={id}>
+                                        {id} ({currencyName})
                                     </MenuItem>
                                 ))}
                             </TextField>
@@ -61,7 +63,7 @@ const BaseCurrencyDialog = ({isOpened, currencies, onSubmit}) => {
             </form>
         </DialogMaterialUi>
     )
-};
+});
 
 BaseCurrencyDialog.propTypes = {
     isOpened: PropTypes.bool.isRequired,

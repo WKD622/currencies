@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import {DRAWER_WIDTH} from "components/organisms/Drawer/consts";
 import styled from 'styled-components';
 
