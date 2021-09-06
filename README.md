@@ -4,8 +4,8 @@
 3. Enter https://cors-anywhere.herokuapp.com/corsdemo, and click `Request temporary access to the demo server`
 4. Now you can start the app
 
-Keep in mind that free plan for the currencies api allows you to make only 100 requests per hour, so after clicking 
-too many times application may stop working.
+Keep in mind that officially free plan for the currencies api allows you to make only 100 requests per hour, so after clicking 
+too many times application may stop working. What I experienced is it actually allows you to do only 50 request per 1 hour.
 
 # Getting Started with Create React App
 

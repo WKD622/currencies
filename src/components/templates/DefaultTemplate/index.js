@@ -13,6 +13,7 @@ import Loader from "components/atoms/Loader";
 const DefaultTemplate = observer(({children}) => {
     const classes = useStyles();
     const {currenciesStore} = useStores();
+    const {baseCurrency, setBaseCurrency, hasBaseCurrency, currencies} = currenciesStore;
 
     if (currenciesStore.fetching) return <Loader/>
 
@@ -20,9 +21,9 @@ const DefaultTemplate = observer(({children}) => {
         <div className={classes.root}>
             <CssBaseline/>
             <BaseCurrencyDialog
-                onSubmit={currenciesStore.setBaseCurrency}
-                isOpened={!currenciesStore.hasBaseCurrency}
-                currencies={currenciesStore.currencies}
+                onSubmit={setBaseCurrency}
+                isOpened={!hasBaseCurrency}
+                currencies={currencies}
             />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
@@ -31,7 +32,7 @@ const DefaultTemplate = observer(({children}) => {
                             Currencies App
                         </Typography>
                         <Typography variant="h6" noWrap>
-                            Base currency: {currenciesStore.baseCurrency}
+                            Base currency: {baseCurrency}
                         </Typography>
                     </ToolbarContent>
                 </Toolbar>

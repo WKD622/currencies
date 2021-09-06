@@ -45,6 +45,7 @@ const ConverterScreen = observer(() => {
             .then((response) => {
                 setResult(amount * response.data[currenciesStringPair(currency1, currency2)])
             })
+            .catch()
     }
 
     if (!fetched) return <Loader/>
