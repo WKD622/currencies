@@ -8,11 +8,13 @@ const routesDefinitions = [
     {
         children: <DefaultTemplate children={<ConverterScreen/>}/>,
         path: CONVERTER_SCREEN_URL,
+        pageTitle: 'Currencies Converter',
         exactPath: true,
     },
     {
         children: <DefaultTemplate children={<ExchangeRatesScreen/>}/>,
         path: EXCHANGE_RATES_SCREEN_URL,
+        pageTitle: 'Exchange Rates',
         exactPath: true,
     }
 ]

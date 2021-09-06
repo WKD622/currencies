@@ -1,3 +1,12 @@
+# Before starting the app 
+1. Create your account here: https://www.currencyconverterapi.com/ to get access to the api
+2. Paste your api key to the file `src/config/apiKey.js`
+3. Enter https://cors-anywhere.herokuapp.com/corsdemo, and click `Request temporary access to the demo server`
+4. Now you can start the app
+
+Keep in mind that free plan for the currencies api allows you to make only 100 requests per hour, so after clicking 
+too many times application may stop working.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

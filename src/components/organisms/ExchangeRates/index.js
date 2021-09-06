@@ -4,6 +4,8 @@ import ExchangeRate from "components/molecules/ExchangRate";
 import PropTypes from "prop-types";
 import Button from "components/atoms/Button";
 import SyncIcon from "components/atoms/icons/SyncIcon";
+import DeleteIcon from "components/atoms/icons/DeleteIcon";
+import ReplayIcon from "components/atoms/icons/ReplayIcon";
 
 const ExchangeRates = observer(({exchangeRates, onRefreshClick, loadFromLocalStorage, onClearClick, loading}) => (
     <div>
@@ -25,13 +27,13 @@ const ExchangeRates = observer(({exchangeRates, onRefreshClick, loadFromLocalSto
         <Button
             onClick={onClearClick}
             variant='contained'
-            startIcon={<SyncIcon/>}>
+            startIcon={<DeleteIcon/>}>
             CLEAR
         </Button>
         <Button
             onClick={loadFromLocalStorage}
             variant='contained'
-            startIcon={<SyncIcon/>}>
+            startIcon={<ReplayIcon/>}>
             LOAD FROM LOCAL STORAGE
         </Button>
     </div>

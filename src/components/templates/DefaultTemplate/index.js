@@ -3,10 +3,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import {ToolbarContent, useStyles} from "./styles";
+import {ToolbarContent, useStyles} from "components/templates/DefaultTemplate/styles";
 import {observer} from 'mobx-react';
 import Drawer from "components/organisms/Drawer";
-import BaseCurrencyDialog from "components/organisms/Drawer/BaseCurrencyDialog";
+import BaseCurrencyDialog from "components/organisms/BaseCurrencyDialog";
 import {useStores} from "stores";
 import Loader from "components/atoms/Loader";
 
