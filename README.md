@@ -6,6 +6,7 @@
 
 Keep in mind that officially free plan for the currencies api allows you to do only 100 requests per hour, so after clicking 
 too many times application may stop working. What I experienced is it actually allows you to do only 50 request per 1 hour.
+React hook form is used on the Dialog.
 
 # Getting Started with Create React App
 
